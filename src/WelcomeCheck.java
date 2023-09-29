@@ -56,6 +56,7 @@ public class WelcomeCheck {
 	        return hasLetter.find() && hasDigit.find() && hasSpecial.find();
 
 	    }
+	    // the password didn't pass muster
 	    else return false;
 
 	}
