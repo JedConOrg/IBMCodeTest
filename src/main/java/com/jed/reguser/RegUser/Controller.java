@@ -1,6 +1,7 @@
 package com.jed.reguser.RegUser;
 
 import org.springframework.boot.jackson.JsonObjectDeserializer;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -67,12 +68,12 @@ public class Controller {
 			)
 	@ResponseBody
 	public String RegOfTheUser(
-			                    @RequestParam(name="user",     required = true, defaultValue = "") JSONPObject jsonObject
+									@RequestBody User user
 			                  ){
 		String reply;
-		reply =         jsonObject.getValue();
-		reply = reply + "<p>Your password is: " + password + "</p>";
-		reply = reply + "<p>Your IP is: " + ipAddress + "</p>";
+		reply =         "<p>Your Name is: " + user.getUserName() + "</p>";
+		reply = reply + "<p>Your password is: " + user.getPassword() + "</p>";
+		reply = reply + "<p>Your IP is: " + user.getIpAddress() + "</p>";
 	    return reply;
 	}
     
